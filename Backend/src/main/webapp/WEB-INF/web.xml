@@ -5,7 +5,7 @@
     <!--Security-->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>springboottest</web-resource-name>
+            <web-resource-name>vuewebapp</web-resource-name>
             <url-pattern>/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
@@ -20,7 +20,7 @@
 	
     <!-- Rollenname des Tools-->
     <security-role>
-        <role-name>*</role-name>
+        <role-name>vuewebapp_user</role-name>
     </security-role>
 
     <session-config>
