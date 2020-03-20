@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>${project.name} - ${project.description}</display-name>
+    
+    <!--Security-->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>springboottest</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>*</role-name>
+        </auth-constraint>
+    </security-constraint>
+  
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>master</realm-name>      
+    </login-config>
+	
+    <!-- Rollenname des Tools-->
+    <security-role>
+        <role-name>*</role-name>
+    </security-role>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+
+</web-app>

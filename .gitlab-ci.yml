@@ -1,0 +1,38 @@
+stages:
+    - build
+    - codecheck
+    - test
+    - deploy
+    
+compile:
+    stage: build
+    script:
+        - 'mvn test-compile'
+pmd:
+    stage: codecheck
+    script:
+        - 'mvn pmd:check pmd:cpd-check'
+bugfinder:
+    stage: codecheck
+    script:
+        - 'mvn test-compile bugfinder:bugfinder'
+        
+verify:
+    stage: test
+    script:
+        - 'mvn verify'
+        
+deployment-production:
+    stage: deploy
+    script:
+        - 'mvn deploy -s ci_settings.xml'
+    only:
+        - master
+        
+deployment-development:
+    stage: deploy
+    script:
+        - 'mvn package'
+        - 'cp target/*.war E:/Apache-Tomcat/webapps'
+    only:
+        - develop
