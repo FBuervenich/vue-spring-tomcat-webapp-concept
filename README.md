@@ -17,18 +17,26 @@ npm run serve
 ```
 
 ### Compiles and minifies for production
+(Only required for deployment)
 ```
 cd Frontend
 npm run build
-```
-
-### Lints and fixes files
-```
-cd Frontend
-npm run lint
 ```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Backend
+
+The backend can be used like any normal Maven-App. Simply load it into Netbeans (or similar IDE) and run it from there.
+
+
+## API-Requests
+
+API-Requests (requests from the frontend to the backend) can be performed as usual. The proxy built into the Dev-Server handles the connection.
+
+Sample *GET-Request* to fetch all *greeting*-entities:
+
+```javascript
+fetch("greetings");
+```
