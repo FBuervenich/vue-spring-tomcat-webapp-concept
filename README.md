@@ -48,7 +48,7 @@ ______________________________
 
 See the following resources for further reading:
 
-*  Official Vue.js documentation: `https://vuejs.org/v2/guide/`
-*  Structuring Vue.js applications: `https://vueschool.io/articles/vuejs-tutorials/structuring-vue-components/`
+*  Official Vue.js documentation: https://vuejs.org/v2/guide/
+*  Structuring Vue.js applications: https://vueschool.io/articles/vuejs-tutorials/structuring-vue-components/
 
 *  Spring Boot documentation: https://docs.spring.io/spring-boot/docs/2.2.6.RELEASE/reference/html/documentation-overview.html
