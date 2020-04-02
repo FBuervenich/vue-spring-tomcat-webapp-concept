@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <GreetingControl />
+    <GreetingControlPage />
   </div>
 </template>
 
 <script>
-import GreetingControl from "./components/GreetingControl.vue";
+import GreetingControlPage from "@/pages/GreetingControlPage";
 
 export default {
   name: "App",
   components: {
-    GreetingControl
+    GreetingControlPage
   }
 };
 </script>

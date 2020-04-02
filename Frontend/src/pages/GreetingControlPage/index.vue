@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import GreetingGetAllBox from "./GreetingGetAllBox.vue";
-import GreetingGetBox from "./GreetingGetBox.vue";
-import GreetingPostBox from "./GreetingPostBox.vue";
-import GreetingPutBox from "./GreetingPutBox.vue";
-import GreetingDeleteBox from "./GreetingDeleteBox.vue";
+import GreetingGetAllBox from "@/components/greeting/GetAllBox";
+import GreetingGetBox from "@/components/greeting/GetBox";
+import GreetingPostBox from "@/components/greeting/PostBox";
+import GreetingPutBox from "@/components/greeting/PutBox";
+import GreetingDeleteBox from "@/components/greeting/DeleteBox";
 
 export default {
-  name: "GreetingControl",
+  name: "GreetingControlPage",
   components: {
     GreetingGetAllBox,
     GreetingGetBox,

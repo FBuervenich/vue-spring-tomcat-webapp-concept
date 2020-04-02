@@ -45,4 +45,10 @@ export default {
 </script>
 
 <style scoped>
+.wzl-table {
+  width: 100%;
+  height:500px;
+  overflow-y: scroll;
+}
+
 </style>
