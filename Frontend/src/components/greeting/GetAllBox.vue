@@ -19,6 +19,8 @@
 </template>
 
 <script>
+const axios = require("axios");
+
 export default {
   name: "GreetingGetAllBox",
   props: {},
@@ -32,13 +34,9 @@ export default {
   },
   methods: {
     reloadGreetings: function() {
-      fetch("greetings", { method: "GET" })
-        .then(response => {
-          return response.json();
-        })
-        .then(json => {
-          this.greetings = json;
-        });
+      axios.get("greetings").then(response => {
+        this.greetings = response.data;
+      });
     }
   }
 };
@@ -47,8 +45,7 @@ export default {
 <style scoped>
 .wzl-table {
   width: 100%;
-  height:500px;
+  height: 500px;
   overflow-y: scroll;
 }
-
 </style>

@@ -1,18 +1,37 @@
 <template>
   <div class="wzl-box">
     <h1>POST-Request</h1>
-    <form id="post" action="greetings" method="POST">
+    <form id="post" action="greetings" method="POST" @submit.prevent>
       <label for="content">content</label>
-      <input id="content" name="content" type="text" />
-      <input class="wzl-button" type="submit" />
+      <input id="content" v-model="content" name="content" type="text" />
+      <input class="wzl-button" type="submit" v-on:click="postNewGreeting" />
     </form>
   </div>
 </template>
 
 <script>
+const axios = require("axios");
+
 export default {
   name: "GreetingPostBox",
-  props: {}
+  props: {},
+  data: function() {
+    return {
+      content: "Beispielname"
+    };
+  },
+  methods: {
+    postNewGreeting: function() {
+      let data = {
+        content: this.content
+      };
+      axios.post("greetings", data).then(() => {
+        this.content = "";
+        // TODO reload getAllBox
+        // https://vuejs.org/v2/guide/state-management.html
+      });
+    }
+  }
 };
 </script>
 
