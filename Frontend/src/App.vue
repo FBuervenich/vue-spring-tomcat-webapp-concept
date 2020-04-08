@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GreetingControlPage from "@/pages/GreetingControlPage";
+import GreetingControlPage from "@/pages/GreetingControl/GreetingControlPage";
 
 export default {
   name: "App",

@@ -1,28 +1,19 @@
 <template>
   <div class="wzl-box" id="get-all">
     <h1>GET-Request ohne Parameter</h1>
-    <table class="wzl-table" id="greetings">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>content</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="greeting in greetings" :key="greeting.id">
-          <td>{{ greeting.id }}</td>
-          <td>{{ greeting.content }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <WZLJsonTable id="AllGreetingsTable" :tableData="this.greetings" />
   </div>
 </template>
 
 <script>
+import WZLJsonTable from "@/components/ui/WZLJsonTable";
 const axios = require("axios");
 
 export default {
   name: "GreetingGetAllBox",
+  components: {
+    WZLJsonTable
+  },
   props: {},
   data: function() {
     return {
@@ -43,9 +34,4 @@ export default {
 </script>
 
 <style scoped>
-.wzl-table {
-  width: 100%;
-  height: 500px;
-  overflow-y: scroll;
-}
 </style>

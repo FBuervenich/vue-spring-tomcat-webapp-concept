@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import GreetingGetAllBox from "@/components/greeting/GetAllBox";
-import GreetingGetBox from "@/components/greeting/GetBox";
-import GreetingPostBox from "@/components/greeting/PostBox";
-import GreetingPutBox from "@/components/greeting/PutBox";
-import GreetingDeleteBox from "@/components/greeting/DeleteBox";
+import GreetingGetAllBox from "@/components/greeting/GreetingGetAllBox";
+import GreetingGetBox from "@/components/greeting/GreetingGetBox";
+import GreetingPostBox from "@/components/greeting/GreetingPostBox";
+import GreetingPutBox from "@/components/greeting/GreetingPutBox";
+import GreetingDeleteBox from "@/components/greeting/GreetingDeleteBox";
 
 export default {
   name: "GreetingControlPage",
