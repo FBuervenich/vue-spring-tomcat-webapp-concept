@@ -21,9 +21,9 @@ Vue.use(VueLogger);
 //     Vue.$log.info("Authenticated");
 //   }
 
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')
+//   new Vue({
+//     render: h => h(App),
+//   }).$mount('#app')
 
 
 //   localStorage.setItem("vue-token", keycloak.token);
