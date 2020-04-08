@@ -108,7 +108,7 @@
 
 
     <build>
-        <finalName>springboottest#api##${project.version}</finalName>
+        <finalName>vuewebapp#api##${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
