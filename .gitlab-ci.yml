@@ -17,8 +17,8 @@ install-node-and-npm-run-install:
 maven-verify:
   stage: validate-compile-test-package-verify
   script:
-    - cd Frontend/reactwebapp
+    - cd Frontend
     - mvn frontend:npm '-Dfrontend.npm.arguments=run build'
     - cp build ../Backend/src/main/webapp
     - cd ../Backend
-    - mvn deploy -s ../ci_settings.xml
+    - mvn deploy -s ../ci_settings.xm
