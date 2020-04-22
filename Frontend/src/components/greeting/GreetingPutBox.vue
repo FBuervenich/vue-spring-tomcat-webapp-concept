@@ -3,10 +3,10 @@
     <h1>PUT-Request</h1>
     <form id="put" action="greeting" method="PUT" @submit.prevent>
       <label for="id">id</label>
-      <input v-model="id" id="id" name="id" type="text" />
+      <WzlInput id="id" placeholder="ID eingeben" v-model="id" type="number" />
       <label for="content">content</label>
-      <input v-model="content" id="content" name="content" type="text" />
-      <input class="wzl-button" type="submit" v-on:click="putGreeting" />
+      <WzlInput placeholder="ID eingeben" v-model="content" type="text" />
+      <WzlButton type="submit" v-bind:clickEvent="putGreeting" />
     </form>
   </div>
 </template>
@@ -19,23 +19,22 @@ export default {
   props: {},
   data: function() {
     return {
-      id: 1,
-      content: "Beispielname"
+      id: "1",
+      content: "Beispielname",
     };
   },
   methods: {
     putGreeting: function() {
       let data = {
-        content: this.content
+        content: this.content,
       };
       axios.put(`greetings/${this.id}`, data).then(() => {
         this.content = "";
         // TODO reload getAllBox
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

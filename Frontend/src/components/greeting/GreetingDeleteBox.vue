@@ -4,24 +4,21 @@
     <form id="delete" action="greeting" method="DELETE" @submit.prevent>
       <label for="id">id</label>
       <input v-model="id" id="id" name="id" type="text" />
-      <WZLButton type="submit" v-bind:clickEvent="deleteGreeting"/>
+      <WzlButton type="submit" v-bind:clickEvent="deleteGreeting" />
     </form>
   </div>
 </template>
 
 <script>
-import WZLButton from "@/components/ui/WZLButton";
 const axios = require("axios");
 
 export default {
   name: "GreetingDeleteBox",
-  components: {
-    WZLButton
-  },
+  components: {},
   props: {},
   data: function() {
     return {
-      id: 1
+      id: 1,
     };
   },
   methods: {
@@ -29,10 +26,9 @@ export default {
       axios.delete(`greetings/${this.id}`).then(() => {
         // TODO reload getAllBox
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
