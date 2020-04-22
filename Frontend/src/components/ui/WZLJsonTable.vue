@@ -1,4 +1,3 @@
-
 <template>
   <table v-if="tableData.length > 0" class="wzl-table" :id="id">
     <thead>
@@ -11,7 +10,9 @@
         <td
           v-for="key in Object.keys(object)"
           :key="key + object[Object.keys(object)[0]]"
-        >{{ object[key] }}</td>
+        >
+          {{ object[key] }}
+        </td>
       </tr>
     </tbody>
   </table>
@@ -23,12 +24,12 @@
  * In order to function properly, the JSON-Objects should all have the same structure.
  */
 export default {
-  name: "WZLJsonTable",
+  name: "WzlJsonTable",
   props: {
     id: String,
-    tableData: Array
+    tableData: Array,
   },
-  methods: {}
+  methods: {},
 };
 </script>
 

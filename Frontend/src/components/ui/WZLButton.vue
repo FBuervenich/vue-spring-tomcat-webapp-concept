@@ -1,19 +1,21 @@
 <template>
-  <input v-on:click="clickEvent" :class="`wzl-button ${classList}`" :type="type" />
+  <input
+    v-on:click="clickEvent"
+    :class="`wzl-button ${classList}`"
+    :type="type"
+  />
 </template>
 
 <script>
-
 export default {
-  name: "WZLButton",
+  name: "WzlButton",
   props: {
     clickEvent: Function,
     type: String,
-    classList: String
+    classList: String,
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

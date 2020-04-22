@@ -1,22 +1,35 @@
-
 <template>
   <div>
-    <label for="id">id</label>
-    <input v-model="id" id="id" name="id" type="text" />
+    <input
+      :id="id"
+      :class="classList"
+      :type="type"
+      :placeholder="placeholder"
+      :value="value"
+      @change="$emit('change', $event.target.value)"
+    />
   </div>
 </template>
 
 <script>
 export default {
-  name: "WZLInput",
-  props: {
-    clickEvent: Function,
-    type: String,
-    classList: String
+  name: "WzlInput",
+  model: {
+    prop: "value",
+    event: "change",
   },
-  methods: {}
+  props: {
+    value: String,
+    type: {
+      type: String,
+      default: "text",
+    },
+    id: String,
+    placeholder: String,
+    classList: String,
+  },
+  methods: {},
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
