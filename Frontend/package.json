@@ -11,8 +11,10 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "keycloak": "^1.2.0",
+    "lodash": "^4.17.15",
     "vue": "^2.6.11",
-    "vuejs-logger": "^1.5.4"
+    "vuejs-logger": "^1.5.4",
+    "vuex": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
