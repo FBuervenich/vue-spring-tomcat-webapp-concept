@@ -1,17 +1,34 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import App from "./App.vue";
+import upperFirst from "lodash/upperFirst";
+import camelCase from "lodash/camelCase";
 // import Keycloak from 'keycloak'
-import VueLogger from 'vuejs-logger';
+import VueLogger from "vuejs-logger";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(VueLogger);
+
+// global wzl components
+const requireComponent = require.context(
+  "./components/ui",
+  false,
+  /Wzl[A-Z]\w+\.(vue|js)$/
+);
+requireComponent.keys().forEach((fileName) => {
+  const componentConfig = requireComponent(fileName);
+
+  const componentName = upperFirst(
+    camelCase(fileName.replace(/^\.\/(.*)\.\w+$/, "$1"))
+  );
+
+  Vue.component(componentName, componentConfig.default || componentConfig);
+});
 
 // let initOptions = {
 //   url: 'https://wzlkeycloak.fbuervenich.de/auth/', realm: 'dev', clientId: 'vuewebapp', onLoad: 'login-required'
 // }
 
 // let keycloak = Keycloak(initOptions);
-
 
 // keycloak.init({ onLoad: initOptions.onLoad }).success((auth) => {
 
@@ -24,7 +41,6 @@ Vue.use(VueLogger);
 //   new Vue({
 //     render: h => h(App),
 //   }).$mount('#app')
-
 
 //   localStorage.setItem("vue-token", keycloak.token);
 //   localStorage.setItem("vue-refresh-token", keycloak.refreshToken);
@@ -41,14 +57,12 @@ Vue.use(VueLogger);
 //       Vue.$log.error('Failed to refresh token');
 //     });
 
-
 //   }, 60000)
 
 // }).error(() => {
 //   Vue.$log.error("Authenticated Failed");
 // });
 
-
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");
