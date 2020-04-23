@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+import store from "./store/store";
 // import Keycloak from 'keycloak'
 import VueLogger from "vuejs-logger";
 
@@ -14,7 +15,7 @@ const requireComponent = require.context(
   false,
   /Wzl[A-Z]\w+\.(vue|js)$/
 );
-requireComponent.keys().forEach((fileName) => {
+requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName);
 
   const componentName = upperFirst(
@@ -64,5 +65,6 @@ requireComponent.keys().forEach((fileName) => {
 // });
 
 new Vue({
-  render: (h) => h(App),
+  store,
+  render: h => h(App)
 }).$mount("#app");
