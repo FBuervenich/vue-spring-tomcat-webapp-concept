@@ -10,7 +10,7 @@
 </template>
 
 <script>
-const axios = require("axios");
+import GreetingService from "@/services/GreetingService";
 
 export default {
   name: "GreetingDeleteBox",
@@ -18,16 +18,16 @@ export default {
   props: {},
   data: function() {
     return {
-      id: 1,
+      id: 1
     };
   },
   methods: {
     deleteGreeting: function() {
-      axios.delete(`greetings/${this.id}`).then(() => {
-        // TODO reload getAllBox
+      GreetingService.deleteGreeting(this.id).then(() => {
+        GreetingService.getGreetings();
       });
-    },
-  },
+    }
+  }
 };
 </script>
 

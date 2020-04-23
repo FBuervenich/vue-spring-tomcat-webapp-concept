@@ -1,12 +1,12 @@
 <template>
   <div class="wzl-box" id="get-all">
     <h1>GET-Request ohne Parameter</h1>
-    <WzlJsonTable id="AllGreetingsTable" :tableData="this.greetings" />
+    <WzlJsonTable id="AllGreetingsTable" :tableData="greeting.greetings" />
   </div>
 </template>
 
 <script>
-const axios = require("axios");
+import { mapState } from "vuex";
 
 export default {
   name: "GreetingGetAllBox",
@@ -14,19 +14,16 @@ export default {
   props: {},
   data: function() {
     return {
-      greetings: [],
+      greetings: []
     };
   },
   created: function() {
-    this.reloadGreetings();
+    this.$store.dispatch("greeting/fetchGreetings");
   },
-  methods: {
-    reloadGreetings: function() {
-      axios.get("greetings").then((response) => {
-        this.greetings = response.data;
-      });
-    },
-  },
+  methods: {},
+  computed: {
+    ...mapState(["greeting"])
+  }
 };
 </script>
 

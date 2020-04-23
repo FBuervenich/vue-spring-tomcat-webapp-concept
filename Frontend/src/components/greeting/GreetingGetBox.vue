@@ -5,31 +5,32 @@
       placeholder="ID eingeben"
       v-model="id"
       type="number"
-      @change="loadGreetingById"
+      @change="loadGreeting"
     />
-    <WzlJsonTable :tableData="this.greetings" />
+    <WzlJsonTable :tableData="[this.greeting]" />
   </div>
 </template>
 
 <script>
-const axios = require("axios");
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "GreetingGetBox",
   props: {},
   data: function() {
     return {
-      id: "1",
-      greetings: [],
+      id: "1"
     };
   },
+  computed: mapState({
+    greeting: state => state.greeting.greeting
+  }),
   methods: {
-    loadGreetingById: function() {
-      axios.get(`greetings/${this.id}`).then((response) => {
-        this.greetings.push(response.data);
-      });
+    loadGreeting: function() {
+      this.fetchGreeting(this.id);
     },
-  },
+    ...mapActions("greeting", ["fetchGreeting"])
+  }
 };
 </script>
 
