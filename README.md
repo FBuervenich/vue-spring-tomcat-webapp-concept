@@ -1,4 +1,4 @@
-# Springboot test app with Vue.js backend
+# Vue.js test webapp with Spring Boot backend
 
 This is a proof-of-concept for a Vue.js webapp with a springboot-backend embedded into our current infrastructure.
 
