@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status: log level for log4j2's own log -->
+<Configuration status="WARN">
+    <Properties>
+        <Property name="consolePattern">%d{HH:mm:ss.SSS} %p [%notEmpty{%X{userId}|}%X{userName}] [%logger{36}:%L] - %m%n</Property>
+        <Property name="filePattern">%d{yyyy-MM-dd HH:mm:ss:SSS} %p [%notEmpty{%X{userId}|}%X{userName}] [%logger{36}:%L] - %m%n</Property>
+        <Property name="toolName">springboottest</Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout
+                pattern="${consolePattern}"/>
+        </Console>
+        <RollingFile name="Rolling"
+                     immediateFlush="false"
+                     fileName="${sys:catalina.home}/logs/${toolName}.log"
+                     filePattern="${sys:catalina.home}/logs/${toolName}.log-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout
+                pattern="${filePattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <!--normales level-->
+        <Root level="DEBUG">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="Rolling"/>
+        </Root>
+        <!--logge nicht jeden scheiss von hibernate-->
+        <logger name="org.hibernate" level="WARN">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="Rolling"/>
+        </logger>
+
+    </Loggers>
+</Configuration>

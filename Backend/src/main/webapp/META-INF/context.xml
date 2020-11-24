@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/vuewebapp">
+  <ResourceLink auth="Container" global="jdbc/postgres" name="jdbc/postgres" type="javax.sql.DataSource"/>
+  <Valve className="org.keycloak.adapters.tomcat.KeycloakAuthenticatorValve"/>
+</Context>

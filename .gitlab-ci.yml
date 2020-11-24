@@ -1,0 +1,24 @@
+stages:
+  - prepare
+  - validate-compile-test-package-verify
+
+install-node-and-npm-run-install:
+  stage: prepare
+  script:
+    - cd Frontend
+    - mvn frontend:install-node-and-npm
+    - mvn frontend:npm '-Dfrontend.npm.arguments=ci --prefer-offline'
+  artifacts:
+    paths:
+      - Frontend/node_modules/
+      - Frontend/node/
+    expire_in: 5 mins
+
+maven-verify:
+  stage: validate-compile-test-package-verify
+  script:
+    - cd Frontend
+    - mvn frontend:npm '-Dfrontend.npm.arguments=run build'
+    - cp build ../Backend/src/main/webapp
+    - cd ../Backend
+    - mvn deploy -s ../ci_settings.xm
