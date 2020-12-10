@@ -1,6 +1,6 @@
 # Vue.js test webapp with Spring Boot backend
 
-This is a proof-of-concept for a Vue.js webapp with a springboot-backend embedded into our current infrastructure.
+This is a proof-of-concept for a Vue.js webapp with a springboot-backend. Frontend and backend are bundled into the same .war for production to be deployed on a Tomcat or similar.
 
 ## Frontend
 
